@@ -3,11 +3,6 @@
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/test">Test</router-link> |
-      <router-link to="/todo">TodoList</router-link> |
-      <router-link to="/contact">contact</router-link> |
-      <router-link to="/contactConfirm">contactConfirm</router-link> |
-      <router-link to="/adressSearch">adressSearch</router-link>
     </nav>
     <router-view/>
   </div>
