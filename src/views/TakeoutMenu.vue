@@ -38,7 +38,7 @@
       </div>
       <div class="menuList">
         <div
-        v-for="product in products_01"
+        v-for="product in filterTakeout_01"
         :key="product"
         class="menuListBox">
           <div class="img">
@@ -80,14 +80,10 @@
           だしとの相性にこだわった天ぷらは、うどんのおいしさを引き立てる最高の相棒。<br>
           アツアツ、サクサクの揚げたてをどうぞ。
         </p>
-        <!-- <p class="menuCaution">
-          ※お持ち帰りの場合には、表示価格に加えて容器代30円を頂戴します。<br>
-          ※得サイズはお持ち帰り対象外です。
-        </p> -->
       </div>
       <div class="menuList">
         <div
-        v-for="product in products_02"
+        v-for="product in filterTakeout_02"
         :key="product"
         class="menuListBox">
           <div class="img">
@@ -136,7 +132,7 @@
       </div>
       <div class="menuList">
         <div
-        v-for="product in products_03"
+        v-for="product in filterTakeout_03"
         :key="product"
         class="menuListBox">
           <div class="img">
@@ -185,7 +181,7 @@
       </div>
       <div class="menuList">
         <div
-        v-for="product in products_04"
+        v-for="product in filterTakeout_04"
         :key="product"
         class="menuListBox">
           <div class="img">
@@ -538,6 +534,20 @@ export default {
           takeoutOnly: false
         }
       ]
+    }
+  },
+  computed: {
+    filterTakeout_01 () {
+      return this.products_01.filter(item => item.takeoutOnly)
+    },
+    filterTakeout_02 () {
+      return this.products_02.filter(item => item.takeoutOnly)
+    },
+    filterTakeout_03 () {
+      return this.products_03.filter(item => item.takeoutOnly)
+    },
+    filterTakeout_04 () {
+      return this.products_04.filter(item => item.takeoutOnly)
     }
   },
   methods: {
