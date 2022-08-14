@@ -38,7 +38,7 @@
       </div>
       <div class="menuList">
         <div
-        v-for="product in products_01"
+        v-for="product in filterTakeout_01"
         :key="product"
         class="menuListBox">
           <div class="img">
@@ -80,14 +80,10 @@
           だしとの相性にこだわった天ぷらは、うどんのおいしさを引き立てる最高の相棒。<br>
           アツアツ、サクサクの揚げたてをどうぞ。
         </p>
-        <!-- <p class="menuCaution">
-          ※お持ち帰りの場合には、表示価格に加えて容器代30円を頂戴します。<br>
-          ※得サイズはお持ち帰り対象外です。
-        </p> -->
       </div>
       <div class="menuList">
         <div
-        v-for="product in products_02"
+        v-for="product in filterTakeout_02"
         :key="product"
         class="menuListBox">
           <div class="img">
@@ -136,7 +132,7 @@
       </div>
       <div class="menuList">
         <div
-        v-for="product in products_03"
+        v-for="product in filterTakeout_03"
         :key="product"
         class="menuListBox">
           <div class="img">
@@ -185,7 +181,7 @@
       </div>
       <div class="menuList">
         <div
-        v-for="product in products_04"
+        v-for="product in filterTakeout_04"
         :key="product"
         class="menuListBox">
           <div class="img">
@@ -220,267 +216,6 @@
     </div>
   </div>
 </template>
-
-<style lang="scss">
-
-/* =============================================
-  //よく使うfont
-  ============================================= */
-$fontFamilyHiraGo:'Hiragino Sans', Meiryo;
-$fontFamilyHiraGo: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-$fontFamilyYuMin: "游明朝", "YuMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", "MS PMincho", serif;
-$fontFamilyHiraMin: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", "MS PMincho", serif;
-$fontFamilyMeiryo: "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
-$fontFamilyGaramondPremierPro: "garamond-premier-pro", serif;
-
-/* =============================================
-  //レスポンシブの設定
-  ============================================= */
-$tab: 767px;
-@mixin tab {
-    @media (max-width: ($tab)) {
-        @content;
-    }
-}
-
-.pc_contents{
-    display: block;
-    @include tab(){
-        display: none !important;
-    }
-}
-
-.sp_contents{
-    display: none !important;
-    @include tab(){
-        display: block !important;
-    }
-}
-
-/* =============================================
-/ get_vwの設定
-============================================= */
-@function get_vw($size, $viewport: 1536) {
-    $rate: 100 / $viewport;
-    @return $rate * $size * 1vw;
-}
-
-p{
-  margin: 0;
-}
-
-.home{
-  width: 100%;
-  .home_tab{
-    width: 40%;
-    margin: 30px auto 100px;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    @include tab () {
-      width: 90%;
-      margin-bottom: 50px;
-    }
-    li{
-      font-size: get_vw(18);
-      cursor: pointer;
-      @include tab(){
-        font-size: get_vw(14,375);
-      }
-      &:hover{
-        font-weight: 600;
-        color: rgb(183, 45, 45);
-      }
-      &.active{
-        font-weight: 600;
-        color: rgb(183, 45, 45);
-      }
-    }
-  }
-  .menuListLead{
-    width: 50%;
-    margin: 0 auto 100px;
-    position: relative;
-    @include tab(){
-      width: 85%;
-      margin: 0 0 40px auto;
-    }
-    .menuName{
-      writing-mode: vertical-rl;
-      font-size: get_vw(40);
-      position: absolute;
-      top: 0px;
-      left: -80px;
-      font-weight: 600;
-      height: 200px;
-      text-align: left;
-      @include tab(){
-        font-size: get_vw(35,375);
-        left: get_vw(-60,375);
-      }
-      &.other{
-        left: -120px;
-      }
-    }
-    .menuExp{
-      text-align: left;
-      font-size: get_vw(16);
-      line-height: 2;
-      margin-bottom: 10px;
-      font-weight: 600;
-      @include tab(){
-        font-size: get_vw(15,375);
-      }
-    }
-    .menuCaution{
-      text-align: left;
-      font-size: get_vw(13);
-      line-height: 2;
-      margin-bottom: 0px;
-      @include tab(){
-        font-size: get_vw(12,375);
-      }
-    }
-  }
-  .menuList{
-    width: 60%;
-    margin: 0 auto;
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    @include tab(){
-      width: 95%;
-    }
-    .menuListBox{
-      padding-bottom: 10px;
-      width: 30%;
-      margin-right: calc((100% - 90%) / 2 );
-      margin-bottom: 80px;
-      background-color: #fff;
-      &:nth-child(3n){
-        margin-right: 0;
-        @include tab(){
-          margin-right: calc(100% - 96%);
-        }
-      }
-      &:nth-child(2n){
-        @include tab(){
-          margin-right: 0;
-        }
-      }
-      @include tab(){
-        width: 48%;
-        margin-right: calc(100% - 96%);
-      }
-      .img{
-        width: 100%;
-        margin: 0 auto;
-        margin-bottom: get_vw(10);
-        @include tab(){
-          margin-bottom: 5px;
-        }
-        img{
-          width: 100%;
-        }
-      }
-      .tag{
-        width: 90%;
-        margin: 0 auto;
-        list-style: none;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        // margin: 0;
-        margin-bottom: 15px;
-        @include tab(){
-          flex-wrap: wrap;
-        }
-        li{
-          font-size: get_vw(13);
-          margin-right: 10px;
-          font-weight: 600;
-          &:nth-last-child(1){
-            margin-right: 0;
-          }
-          @include tab(){
-            font-size: get_vw(11.5,375);
-          }
-        }
-        .category_01{
-          color: #fff;
-          background-color: rgb(48, 156, 210);
-          padding: 2px 5px;
-          border-radius: 50%;
-        }
-        .category_02{
-          color: #fff;
-          background-color: rgb(183, 45, 45);
-          padding: 2px 10px;
-          border-radius: 10px;
-        }
-        .category_03{
-          color:#000;
-          @include tab(){
-            margin-top:5px;
-          }
-        }
-      }
-      .menuName{
-        width: 90%;
-        margin: 0 auto;
-        text-align: left;
-        margin-bottom: 10px;
-        p{
-          font-size: get_vw(18);
-          font-weight: 600;
-          @include tab(){
-            font-size: get_vw(16,375);
-          }
-        }
-      }
-      .menuExp{
-        width: 90%;
-        margin: 0 auto;
-        text-align: left;
-        margin-bottom: 10px;
-        p{
-          font-size: get_vw(15);
-          @include tab(){
-            font-size: get_vw(13,375);
-          }
-        }
-      }
-      .menuPrice{
-        width: 90%;
-        margin: 0 auto;
-        display: flex;
-        @include tab(){
-          flex-wrap: wrap;
-        }
-        .size{
-          font-size: get_vw(15);
-          &:nth-last-child(1){
-            margin-right: 0;
-          }
-          @include tab(){
-            font-size: get_vw(10,375);
-            text-align: left;
-          }
-        }
-        .price{
-          margin-left: 10px;
-          font-size: get_vw(15);
-          font-weight: 600;
-          @include tab(){
-            font-size: get_vw(15,375);
-          }
-        }
-      }
-    }
-  }
-}
-</style>
 
 <script>
 // @ is an alias to /src
@@ -799,6 +534,20 @@ export default {
           takeoutOnly: false
         }
       ]
+    }
+  },
+  computed: {
+    filterTakeout_01 () {
+      return this.products_01.filter(item => item.takeoutOnly)
+    },
+    filterTakeout_02 () {
+      return this.products_02.filter(item => item.takeoutOnly)
+    },
+    filterTakeout_03 () {
+      return this.products_03.filter(item => item.takeoutOnly)
+    },
+    filterTakeout_04 () {
+      return this.products_04.filter(item => item.takeoutOnly)
     }
   },
   methods: {
