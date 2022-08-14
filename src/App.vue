@@ -2,7 +2,6 @@
   <div id="app">
     <nav>
       <router-link to="/">全メニュー</router-link> |
-      <router-link to="/takeoutmenu">テイクアウト商品</router-link>
     </nav>
     <router-view/>
   </div>
