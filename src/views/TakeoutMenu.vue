@@ -224,7 +224,6 @@ export default {
   name: 'HomeView',
   data () {
     return {
-      // tabs: ['うどん', '天ぷら', 'ご飯もの', '薬味・トッピング'],
       isActive: '1',
       products_01: [
         {
@@ -458,21 +457,6 @@ export default {
         }
       ],
       products_04: [
-        {
-          cold: '',
-          currency: '円',
-          hot: false,
-          href: '',
-          image: require('@/assets/yakumi_01.jpeg'),
-          lead: 'たつるが一日一食限定でお出しする薬味になります。',
-          name: 'たつるの限定うどん',
-          price: { default: true, number: 690, unit: '並' },
-          priceNotes: null,
-          shopExclusive: '店舗限定',
-          sizeUnits: ['特大', 'めちゃ特大', 'ギガ'],
-          takeoutAvailable: 'お持ち帰り可',
-          takeoutOnly: true
-        },
         {
           cold: '',
           currency: '円',
